@@ -7,4 +7,4 @@ It's cool you should do it too.
 Each puzzle has two implementations:
 
 1. Python
-2. Rust
+2. Rust (eventually)

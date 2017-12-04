@@ -2,6 +2,8 @@
 #
 # http://adventofcode.com/2017/day/1
 #
+# Part One
+#
 from sys import argv, stdin
 
 def circular(l):
