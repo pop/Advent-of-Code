@@ -1,0 +1,8 @@
+[package]
+name = "advent_of_code_2019"
+version = "0.1.0"
+authors = ["Elijah Voigt <elijah.caine.mv@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+clap = "2.33.0"
