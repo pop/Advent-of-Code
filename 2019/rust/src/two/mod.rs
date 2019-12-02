@@ -11,7 +11,6 @@ fn split_input(input: &str) -> Vec<usize> {
 fn intcode(mut input: Vec<usize>) -> usize {
     let mut pos = 0;
     loop {
-        println!("{:?} || {} || {}", input, pos, input[pos]);
         let curr = input[pos];
         match curr {
             1 => {
@@ -33,7 +32,17 @@ fn intcode(mut input: Vec<usize>) -> usize {
     }
 }
 
-pub fn solution(input: &str) -> usize {
-    let input = split_input(input);
-    intcode(input)
+pub fn solution(line: &str) -> usize {
+    let input = split_input(line);
+    for x in 1..99 {
+        for y in 2..99 {
+            let mut a = input.to_vec();
+            a[1] = x;
+            a[2] = y;
+            if intcode(a) == 19690720 {
+                return 100 * x + y;
+            }
+        }
+    }
+    return 0;
 }
