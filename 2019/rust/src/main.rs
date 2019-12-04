@@ -2,6 +2,7 @@ extern crate clap;
 
 mod one;
 mod two;
+mod three;
 
 use clap::{
     Arg,
@@ -24,9 +25,22 @@ fn main() {
         .subcommand(SubCommand::with_name("two")
             .about("Second day")
             .arg(Arg::with_name("INPUT")
-                .help("Input file")
+                .help("Input string")
                 .required(true)
                 .index(1)
+            )
+        )
+        .subcommand(SubCommand::with_name("three")
+            .about("Third day")
+            .arg(Arg::with_name("INPUT A")
+                .help("Input string A")
+                .required(true)
+                .index(1)
+            )
+            .arg(Arg::with_name("INPUT B")
+                .help("Input string B")
+                .required(true)
+                .index(2)
             )
         )
         .get_matches();
@@ -38,5 +52,10 @@ fn main() {
     if let Some(matches) = matches.subcommand_matches("two") {
         let input = matches.value_of("INPUT").unwrap();
         println!("{}", two::solution(input))
+    }
+    if let Some(matches) = matches.subcommand_matches("three") {
+        let a = matches.value_of("INPUT A").unwrap();
+        let b = matches.value_of("INPUT B").unwrap();
+        println!("{}", three::solution(a, b))
     }
 }
